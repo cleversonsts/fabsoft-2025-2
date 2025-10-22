@@ -14,5 +14,9 @@ export class EmpresaService {
   getEmpresas(){
     return this.Http.get<Empresa[]>(this.apiURL)
   }
+
+  saveEmpresa(empresa:Empresa){
+    return this.Http.post(this.apiURL, empresa)
+  }
   
 }
