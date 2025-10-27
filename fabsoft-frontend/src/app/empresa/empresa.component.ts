@@ -35,4 +35,8 @@ export class EmpresaComponent {
     this.router.navigate(['empresas/novo']);
   }
 
+  alterar(empresa:Empresa){
+    this.router.navigate(['empresas/alterar', empresa.id]);
+  }
+
 }

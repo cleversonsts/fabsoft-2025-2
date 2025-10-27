@@ -55,4 +55,13 @@ public class EmpresaServiceImpl
       return empresaAntigo;
     }
 
+    @Override
+    public Empresa getById(long id) {
+         var retorno =  repository.findById(id);
+         if (retorno.isPresent())
+            return retorno.get();
+           
+         return null;
+    }
+
 }

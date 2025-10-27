@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.vesto.fabsoft_backend.entity.Empresa;
 import br.vesto.fabsoft_backend.service.EmpresaService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/v1/empresas")
@@ -45,6 +47,24 @@ public class EmpresaController {
         return ResponseEntity.badRequest().build();
 
     }
+     
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Empresa>
+            getEmpresaByID(@PathVariable long id){
+        var empresa = service.getById(id);
+        if(empresa == null) 
+            return ResponseEntity.noContent().build();
+        
+        return new
+            ResponseEntity<Empresa>(empresa, HttpStatus.OK);
+
+        }
+
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
 
     @PutMapping("/{id}")
     public ResponseEntity<Empresa> 

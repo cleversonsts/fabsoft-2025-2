@@ -4,7 +4,7 @@ import { EmpresaService } from '../service/empresa.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -20,8 +20,18 @@ export class FormEmpresa {
 
   constructor(
     private empresaService:EmpresaService,
-    private router:Router
-  ){}
+    private router:Router,
+    private activeRouter: ActivatedRoute
+  ){
+      let id = this.activeRouter.snapshot.paramMap.get('id')
+
+      if(id){
+        this,empresaService.getEmpresaById(id)
+          .subscribe( res => {
+              this.empresa = res
+        })
+      }
+  }
 
   salvar(){
     this.empresaService.saveEmpresa(this.empresa)

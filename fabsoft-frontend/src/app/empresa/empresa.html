@@ -7,6 +7,7 @@
                 <th>Nome</th>
                 <th>CNPJ</th>
                 <th>Telefone</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,10 @@
                 <td>{{ umEmpresa.nome }}</td>
                 <td>{{ umEmpresa.cnpj }}</td>
                 <td>{{ umEmpresa.telefone }}</td>
+                <td> <button (click)="alterar(umEmpresa)" 
+                    class="btn btn-secondary">
+                    Alterar
+                </button></td>
             </tr>
         </tbody>
     </table>

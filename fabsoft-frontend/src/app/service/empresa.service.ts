@@ -16,7 +16,15 @@ export class EmpresaService {
   }
 
   saveEmpresa(empresa:Empresa){
+    if(empresa.id){
+      return this.Http.put(this.apiURL + '/' + empresa.id, empresa)
+    }
+
     return this.Http.post(this.apiURL, empresa)
+  }
+
+  getEmpresaById(id: string){
+    return this.Http.get<Empresa>(this.apiURL + '/' + id)
   }
   
 }

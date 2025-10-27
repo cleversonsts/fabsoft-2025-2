@@ -9,5 +9,6 @@ public interface EmpresaService {
     Empresa save(Empresa empresa);
     Empresa update(long id, Empresa empresa) throws Exception;
     Empresa delete(long id) throws Exception;
+    Empresa getById(long id);
 
 }

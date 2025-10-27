@@ -8,7 +8,21 @@
                     [(ngModel)]="empresa.nome" 
                     class="form-control"
                     id="txtNome" >
+
+                <label for="txtCnpj">CNPJ</label>
+                <input type="text"
+                    [(ngModel)]="empresa.cnpj" 
+                    class="form-control"
+                    id="txtCnpj" >
+
+                <label for="txtTelefone">Telefone</label>
+                <input type="text"
+                    [(ngModel)]="empresa.telefone" 
+                    class="form-control"
+                    id="txtTelefone" >
             </div>
         </div>
+        <button (click)="salvar()"
+         class="btn btn-primary">Salvar</button>
     </div>
 </main>
